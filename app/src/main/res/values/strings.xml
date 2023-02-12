@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Calculator</string>
+    <string name="title_activity_landing">LandingActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Calculator</string>
+    <string name="nav_header_subtitle">ashiskayal741@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_calculator">Calculator</string>
+    <string name="menu_unit_conversion">Unit Converter</string>
+    <string name="menu_currency_converter">Currency Converter</string>
+    <string name="menu_setting">Setting</string>
+    <string name="ac">AC</string>
+    <string name="del">DEL</string>
+    <string name="divide">/</string>
+    <string name="mul">*</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="dot">.</string>
+    <string name="sub">-</string>
+    <string name="_6">6</string>
+    <string name="_5">5</string>
+    <string name="_4">4</string>
+    <string name="plus">+</string>
+    <string name="_3">3</string>
+    <string name="_2">2</string>
+    <string name="_1">1</string>
+    <string name="x_y">x^y</string>
+    <string name="eq">=</string>
+    <string name="_0">0</string>
+
+    <string name="api_key" tools:ignore="Typos">lPObw1G5ECcD9WCIEYbUotFZGg5SsGpq</string>
+    <string name="currency_convert">Currency Convert</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+
+    <string name="preference_name">calculator_app_data</string>
+</resources>

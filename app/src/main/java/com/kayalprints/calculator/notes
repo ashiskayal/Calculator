@@ -1,0 +1,10 @@
+1. Calculator
+2. Unit Conversion
+3. Currency Convertor
+4. Setting
+
+Currency Convertor API
+Key : lPObw1G5ECcD9WCIEYbUotFZGg5SsGpq
+
+https://api.apilayer.com/currency_data/live?apikey=lPObw1G5ECcD9WCIEYbUotFZGg5SsGpq
+https://api.apilayer.com/currency_data/list?apikey=lPObw1G5ECcD9WCIEYbUotFZGg5SsGpq

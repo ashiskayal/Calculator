@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_calculator"
+            android:icon="@drawable/side_nav_bar"
+            android:title="@string/menu_calculator" />
+        <item
+            android:id="@+id/nav_unit_conversion"
+            android:icon="@drawable/side_nav_bar"
+            android:title="@string/menu_unit_conversion" />
+        <item
+            android:id="@+id/nav_currency_converter"
+            android:icon="@drawable/side_nav_bar"
+            android:title="@string/menu_currency_converter" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/side_nav_bar"
+            android:title="@string/menu_setting" />
+    </group>
+</menu>
