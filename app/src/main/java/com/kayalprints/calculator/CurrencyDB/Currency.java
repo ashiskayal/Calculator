@@ -37,6 +37,12 @@ public class Currency {
         this.fullName = fullName;
     }
 
+    @Ignore
+    public Currency(@NonNull String name, String fullName) {
+        this.name = name;
+        this.fullName = fullName;
+    }
+
     @NonNull
     public String getName() {
         return name;
@@ -60,5 +66,13 @@ public class Currency {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    @Override
+    public String toString() {
+        return "Currency{" +
+                "name='" + name + '\'' +
+                ", fullName='" + fullName + '\'' +
+                '}';
     }
 }

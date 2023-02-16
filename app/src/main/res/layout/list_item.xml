@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@android:id/text1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:ellipsize="marquee"
-    android:singleLine="true"
-    android:textAlignment="center"
-    android:textColor="@color/black"
-    android:text="IndianRupee"
-    android:textSize="18sp"
-    android:padding="5dp"
-    android:elevation="5dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="currency"
+            type="com.kayalprints.calculator.CurrencyDB.Currency" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        app:cardElevation="5dp"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="5dp"
+        android:backgroundTint="@color/primary">
+        <TextView
+            android:id="@+id/itemText"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:ellipsize="marquee"
+            android:singleLine="false"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:hint="@string/currency_hint"
+            android:text="@{currency.toString()}"
+            android:textSize="18sp"
+            android:padding="10dp" />
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

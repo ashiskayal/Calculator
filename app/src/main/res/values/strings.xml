@@ -38,4 +38,6 @@
     <string name="to">To</string>
 
     <string name="preference_name">calculator_app_data</string>
+    <string name="search_currency_hint">Search currency (i.e. INR)</string>
+    <string name="currency_hint">INR - Indian Rupee</string>
 </resources>

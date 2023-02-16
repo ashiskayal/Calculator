@@ -1,8 +1,5 @@
 package com.kayalprints.calculator.CurrencyDB;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.AndroidViewModel;
@@ -13,12 +10,9 @@ import java.util.List;
 public class CurrencyDBViewModel extends AndroidViewModel {
 
     private final CurrencyDBRepository repository;
-    @SuppressLint("StaticFieldLeak")
-    private final FragmentActivity activity;
 
     public CurrencyDBViewModel(@NonNull FragmentActivity activity) {
         super(activity.getApplication());
-        this.activity = activity;
         this.repository = new CurrencyDBRepository(activity.getApplication());
     }
 
