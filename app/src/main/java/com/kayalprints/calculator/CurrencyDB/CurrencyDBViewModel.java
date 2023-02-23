@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.kayalprints.calculator.Currency;
+
 import java.util.List;
 
 public class CurrencyDBViewModel extends AndroidViewModel {

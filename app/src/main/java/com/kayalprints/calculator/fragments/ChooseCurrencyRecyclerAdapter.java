@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kayalprints.calculator.CurrencyDB.Currency;
+import com.kayalprints.calculator.Currency;
 import com.kayalprints.calculator.R;
 import com.kayalprints.calculator.databinding.ListItemBinding;
 
@@ -20,23 +20,22 @@ public class ChooseCurrencyRecyclerAdapter extends RecyclerView.Adapter<ChooseCu
     private final List<Currency> currencyList;
     private OnCurrencyClickListener listener;
 
-    public ChooseCurrencyRecyclerAdapter(Map<String, Currency> map) {
+    public ChooseCurrencyRecyclerAdapter(@NonNull Map<String, Currency> map) {
         this.currencyList = new ArrayList<>(map.values());
     }
 
     @NonNull
     @Override
     public CurrencyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ListItemBinding contactListItemBinding = DataBindingUtil.inflate(
-                LayoutInflater.from(parent.getContext()),
+        ListItemBinding bind = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),
                 R.layout.list_item, parent, false);
-
-        return new CurrencyViewHolder(contactListItemBinding);
+        return new CurrencyViewHolder(bind);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CurrencyViewHolder holder, int position) {
-        holder.binding.setCurrency(currencyList.get(position));
+        Currency currency = currencyList.get(position);
+        holder.binding.setCurrency(currency);
     }
 
     @Override
@@ -44,14 +43,12 @@ public class ChooseCurrencyRecyclerAdapter extends RecyclerView.Adapter<ChooseCu
         return currencyList.size();
     }
 
-    public class CurrencyViewHolder extends RecyclerView.ViewHolder {
+    class CurrencyViewHolder extends RecyclerView.ViewHolder {
+        ListItemBinding binding;
 
-        private final ListItemBinding binding;
-
-        public CurrencyViewHolder(ListItemBinding binding) {
-            super(binding.getRoot());
-
-            this.binding = binding;
+        public CurrencyViewHolder(ListItemBinding bind) {
+            super(bind.getRoot());
+            this.binding = bind;
 
             itemView.setOnClickListener(v -> {
                 int pos = getAdapterPosition();
@@ -68,5 +65,4 @@ public class ChooseCurrencyRecyclerAdapter extends RecyclerView.Adapter<ChooseCu
     public void setOnCurrencyClickListener(OnCurrencyClickListener listener) {
         this.listener = listener;
     }
-
 }

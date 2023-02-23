@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kayalprints.calculator.CurrencyDB.Currency;
+import com.kayalprints.calculator.Currency;
 import com.kayalprints.calculator.R;
 import com.kayalprints.calculator.ui.currencyConversion.CurrencyConversionFragment;
 
@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class ChooseCurrencyDialog extends DialogFragment {
 
-    Map<String, Currency> currencyMap;
+    private final Map<String, Currency> currencyMap;
 
     public ChooseCurrencyDialog(Map<String, Currency> map) {
         this.currencyMap = map;
@@ -38,7 +38,6 @@ public class ChooseCurrencyDialog extends DialogFragment {
             else CurrencyConversionFragment.setFromCurrency(currency);
             dismiss();
         });
-
         return v;
     }
 }

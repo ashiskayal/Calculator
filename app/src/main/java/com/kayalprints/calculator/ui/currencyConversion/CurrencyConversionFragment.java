@@ -11,10 +11,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.kayalprints.calculator.CurrencyDB.Currency;
+import com.kayalprints.calculator.Currency;
 import com.kayalprints.calculator.CurrencyDB.CurrencyDBViewModel;
 import com.kayalprints.calculator.R;
 import com.kayalprints.calculator.classes.CurrencyConvertorData;
@@ -34,6 +33,8 @@ public class CurrencyConversionFragment extends Fragment {
     private CurrencyConversionViewModel currencyConversionViewModel;
     private CurrencyDBViewModel currencyDBViewModel;
 
+    private static CurrencyConvertorData currencyConvertorData;
+
     private static Currency fromCurrency = new Currency("USD",1.0,"United States Dollar"),
             toCurrency = new Currency("USD",1.0,"United States Dollar");
     public static boolean operation = false; // false when fromCurrency choosing, true when toCurrency choosing
@@ -44,6 +45,7 @@ public class CurrencyConversionFragment extends Fragment {
                 new ViewModelProvider(this).get(CurrencyConversionViewModel.class);
         currencyDBViewModel = new CurrencyDBViewModel(requireActivity());
 
+        // Initializing the maps
         currencies = new TreeMap<>();
         currencyValue = new TreeMap<>();
         currencyMap = new TreeMap<>();
@@ -53,34 +55,39 @@ public class CurrencyConversionFragment extends Fragment {
 
         sharedPreferences = requireContext().getSharedPreferences(requireContext().getString(R.string.preference_name), Context.MODE_PRIVATE);
 
+        // Checking if already data are loaded 24hrs ago in local database or not
         long prevTime = sharedPreferences.getLong("prevTime",0);
 
         if(prevTime != 0 && System.currentTimeMillis() - prevTime < 86400000) loadCurrencyData();
         else fetchCurrencyData();
 
-        CurrencyConvertorData currencyConvertorData = new CurrencyConvertorData();
+        // Setting the binding variables
+//        currencyConvertorData = new CurrencyConvertorData(currencyMap.get("INR"), currencyMap.get("AZN"));
+        currencyConvertorData =
+                new CurrencyConvertorData(CurrencyConversionFragment.fromCurrency, CurrencyConversionFragment.toCurrency);
         binding.setData(currencyConvertorData);
 
+        // Click listener to the text views in order to choose currencies
         binding.textViewCurrencyConvFrom.setOnClickListener(v -> {
             operation = false;
-
             ChooseCurrencyDialog dialog = new ChooseCurrencyDialog(currencyMap);
-            dialog.show(requireActivity().getSupportFragmentManager(), "ChooseCurrencyDialog");
+            dialog.show(getChildFragmentManager(), "ChooseCurrencyDialog");
         });
 
         binding.textViewCurrencyConvTo.setOnClickListener(v -> {
             operation = true;
-
             ChooseCurrencyDialog dialog = new ChooseCurrencyDialog(currencyMap);
             dialog.show(requireActivity().getSupportFragmentManager(), "ChooseCurrencyDialog");
         });
 
+        // Operation to do by swap refresh
         binding.swipeLayout.setOnRefreshListener(this::refreshData);
         binding.swipeLayout.setRefreshing(true);
 
         return root;
     }
 
+    // Takes the data from currencies and currencyValue map and set to currencyMap
     private void updateCurrencyMap() {
         for (String name : currencies.keySet()) currencyMap.put(name, new Currency(name, currencies.get(name)));
         for (String name : currencyValue.keySet()) {
@@ -94,7 +101,7 @@ public class CurrencyConversionFragment extends Fragment {
 
     private void refreshData() {
         loadCurrencyData();
-        if(currencies.size() < 170) fetchCurrencyData();
+        if(currencies.size() < 170) fetchCurrencyData(); // Total 170 currencies are there
     }
 
     /* Load the currency Data from the local database */
@@ -140,10 +147,12 @@ public class CurrencyConversionFragment extends Fragment {
 
     public static void setFromCurrency(Currency fromCurrency) {
         CurrencyConversionFragment.fromCurrency = fromCurrency;
+        currencyConvertorData.setFromCurrency(fromCurrency);
     }
 
     public static void setToCurrency(Currency toCurrency) {
         CurrencyConversionFragment.toCurrency = toCurrency;
+        currencyConvertorData.setToCurrency(toCurrency);
     }
 
     @Override

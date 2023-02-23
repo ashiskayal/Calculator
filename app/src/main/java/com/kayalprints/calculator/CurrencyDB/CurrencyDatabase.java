@@ -6,6 +6,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.kayalprints.calculator.Currency;
+
 @Database(entities = {Currency.class}, version = 1)
 public abstract class CurrencyDatabase extends RoomDatabase {
 
@@ -18,27 +20,8 @@ public abstract class CurrencyDatabase extends RoomDatabase {
             instance = Room.databaseBuilder(context.getApplicationContext()
                             ,CurrencyDatabase.class,"currency_database")
                     .fallbackToDestructiveMigration()
-//                    .addCallback(roomCallback)
                     .build();
         }
         return instance;
     }
-
-
-//    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback(){
-//        @Override
-//        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-//            super.onCreate(db);
-//
-//            CurrencyDAO noteDao = instance.getDao();
-//            ExecutorService executorService = Executors.newSingleThreadExecutor();
-//
-//            executorService.execute(new Runnable() {
-//                @Override
-//                public void run() {
-//
-//                }
-//            });
-//        }
-//    };
 }

@@ -1,6 +1,8 @@
-package com.kayalprints.calculator.CurrencyDB;
+package com.kayalprints.calculator;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
@@ -68,11 +70,9 @@ public class Currency {
         this.fullName = fullName;
     }
 
+    @NonNull
     @Override
     public String toString() {
-        return "Currency{" +
-                "name='" + name + '\'' +
-                ", fullName='" + fullName + '\'' +
-                '}';
+        return name+" : "+fullName;
     }
 }
