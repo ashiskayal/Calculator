@@ -7,17 +7,17 @@
     <data>
         <variable
             name="inputHolder"
-            type="com.kayalprints.calculator.classes.CurrentInputHolder" />
+            type="com.kayalprints.calculator.CurrentInputHolder" />
 
         <variable
             name="clickListener"
-            type="com.kayalprints.calculator.ui.calculator.CalculatorFragment" />
+            type="com.kayalprints.calculator.calculator.ui.CalculatorFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.calculator.CalculatorFragment">
+        tools:context=".calculator.ui.CalculatorFragment">
 
         <TextView
             android:id="@+id/textViewHistory"

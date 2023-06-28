@@ -6,7 +6,7 @@
     <data>
         <variable
             name="data"
-            type="com.kayalprints.calculator.classes.CurrencyConvertorData" />
+            type="com.kayalprints.calculator.CurrencyConvertorData" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/side_nav_bar"
-            tools:context=".ui.currencyConversion.CurrencyConversionFragment">
+            tools:context=".currencyConvertor.ui.CurrencyConversionFragment">
 
             <TextView
                 android:id="@+id/textView4"

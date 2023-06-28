@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="currency"
-            type="com.kayalprints.calculator.Currency" />
+            name="data"
+            type="java.lang.Object" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -23,8 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="marquee"
-            android:hint="@string/currency_hint"
-            android:text="@{currency.toString()}"
+            android:hint="@string/list_item_hint"
+            android:text="@{data.toString()}"
             android:padding="10dp"
             android:singleLine="false"
             android:textAlignment="center"

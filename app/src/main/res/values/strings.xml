@@ -34,10 +34,16 @@
 
     <string name="api_key" tools:ignore="Typos">lPObw1G5ECcD9WCIEYbUotFZGg5SsGpq</string>
     <string name="currency_convert">Currency Convert</string>
+    <string name="unit_convert">Unit Convert</string>
     <string name="from">From</string>
     <string name="to">To</string>
 
     <string name="preference_name">calculator_app_data</string>
     <string name="search_currency_hint">Search currency (i.e. INR)</string>
+    <string name="search_unit_hint">Search unit (i.e. cm)</string>
     <string name="currency_hint">INR - Indian Rupee</string>
+    <string name="select_catgry_hint">Click to select category</string>
+    <string name="select_fromUnit_hint">Click to select from Unit</string>
+    <string name="select_toUnit_hint">Click to select to Unit</string>
+    <string name="list_item_hint">LI - List Item Name</string>
 </resources>

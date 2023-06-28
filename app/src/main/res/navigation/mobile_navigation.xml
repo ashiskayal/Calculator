@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/nav_calculator"
-        android:name="com.kayalprints.calculator.ui.calculator.CalculatorFragment"
+        android:name="com.kayalprints.calculator.calculator.ui.CalculatorFragment"
         android:label="@string/menu_calculator"
         tools:layout="@layout/fragment_calculator" />
 
     <fragment
         android:id="@+id/nav_currency_converter"
-        android:name="com.kayalprints.calculator.ui.currencyConversion.CurrencyConversionFragment"
+        android:name="com.kayalprints.calculator.currencyConvertor.ui.CurrencyConversionFragment"
         android:label="@string/menu_currency_converter"
         tools:layout="@layout/fragment_currency_convertor" />
 
     <fragment
         android:id="@+id/nav_unit_conversion"
-        android:name="com.kayalprints.calculator.ui.unitConversion.UnitConversionFragment"
+        android:name="com.kayalprints.calculator.unitConvertor.ui.UnitConversionFragment"
         android:label="@string/menu_unit_conversion"
         tools:layout="@layout/fragment_unit_convertor" />
 
     <fragment
         android:id="@+id/nav_setting"
-        android:name="com.kayalprints.calculator.ui.setting.SettingFragment"
+        android:name="com.kayalprints.calculator.setting.ui.SettingFragment"
         android:label="@string/menu_setting"
         tools:layout="@layout/fragment_setting" />
 </navigation>
